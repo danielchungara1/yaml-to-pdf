@@ -1,0 +1,185 @@
+openapi: 3.0.1
+info:
+  title: SIM MES API Documentation
+  description: |
+    This document describe Rest MES API and show examples of two uses case. Request IMEI EDF information and post test result
+  version: 1.0.0
+servers:
+- url: https://rg.qa.sim.ad.mirgor.com.ar:8081/QA-int/
+tags:
+  - name: device-api
+    description: Device API
+paths:
+  /device:
+    post:
+      tags:
+       - device-api
+      summary: __--
+      operationId: call
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Call'
+            examples:
+              case 1:
+                summary: "request edf file information"
+                description: "This sample show how station call api to request edf file information from MES"
+                value:
+                  user: "sys"
+                  password: "******"
+                  method: "MES_PA_WI1012"
+                  methodparameter:
+                    BarCode: "352125110156238"
+              case 2:
+                summary: "post test result"
+                description: "This sample show how station post test result to MES"
+                value:
+                  user: "sys"
+                  password: "******"
+                  method: "MES_BA_WI6041"
+                  methodparameter:
+                    state: fail
+                    content:
+                      testresult:
+                        psn: 79823AA3000LU
+                        workordernumber: '100000305427'
+                        testStationId: '98'
+                        testStationName: CheckStation
+                        linename: P0150
+                        hostname: WTDSK-006
+                        testTime: 13-11-2019 02:49:17
+                        testModel: S96116AA1_CKIN_GR1_INS
+                        testWorkID: '1'
+                        testVersion: WriteNumber 11.48.0.0
+                        Fixture: ''
+                        FixtureSN: '1'
+                        Powersupply: ''
+                        PowersupplySN: ''
+                        Instrument: ''
+                        InstrumentSN: ''
+                        Operator: ''
+                      snresult:
+                        psn: ''
+                        FpSN: ''
+                        CustSN: ''
+                        Imei_1: ''
+                        Imei_2: ''
+                        Imei_3: ''
+                        Imei_4: ''
+                        MEID: ''
+                        LanMac: ''
+                        WifiMac: ''
+                        Wifi2Mac: ''
+                        BtMac: ''
+                        NetCode: ''
+                        ChipId: ''
+                      itemresult:
+                      - testCondition: ''
+                        testItem: Enter Test Mode
+                        testResult: "-"
+                        testUpperLimit: "-"
+                        testLowerLimit: "-"
+                        testFlag: pass
+                      - testCondition: ''
+                        testItem: Pcb Sn = 79823AA3000LU
+                        testResult: "-"
+                        testUpperLimit: "-"
+                        testLowerLimit: "-"
+                        testFlag: pass
+                      - testCondition: ''
+                        testItem: Check Barcode Routing
+                        testResult: "-"
+                        testUpperLimit: "-"
+                        testLowerLimit: "-"
+                        testFlag: fail
+                      - testCondition: ''
+                        testItem: Check Pcb Sn And Imei
+                        testResult: "-"
+                        testUpperLimit: "-"
+                        testLowerLimit: "-"
+                        testFlag: fail
+                      specialitem: []
+                    errcode: '52801'
+                    errmessage: Enter test mode failed.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Call'
+              examples:
+                case 1:
+                  summary: "response edf file information"
+                  description: "This sample show how MES response to request edf file information"
+                  value:
+                    state: "true"
+                    content:
+                      SKU: SM-A107MZKAARO
+                      IMEI: 352125110156238
+                      PROD_SN: R00MC037TMJ
+                      SLAVE_IMEI:
+                      SW_VERSION: SW_S96116BA1_V064_M10_EF_SS_N6_USRD_ATO
+                      HW_VERSION: MP1.0
+                      BT_ADDR: 48794DD8CF3C
+                      MAC_ADDR: 48794DD8CF3B
+                      NCK: 0
+                      MCK: 0
+                      UN_NUM: W155144303D9B59BF6B6
+                      PACK_ID:
+                      BOX_ID: C1619121600035
+                      PALLET_ID: P1619121600050
+                      MANUFACTURE: JDM_WTCN
+                      PROD_DATE: 20191216
+                      SHIP_DATE: 20191219
+                      DO_NUM: 8498124585
+                      PO:
+                      SHIP_QTY: 2000
+                      TRANSFER_DT: 20191219175436
+                      PARTS_SN_MAINPBA: 79C06DA500006
+                      PARTS_SN_SUBPBA:
+                      PARTS_SN_BATTERY:
+                      PARTS_SN_REAR:
+                      PARTS_SN_LCD:
+                      PARTS_SN_CAM_RR1:
+                      PARTS_SN_CAM_RR2:
+                      PARTS_SN_FINGERS:
+                      PARTS_SN_TA:
+                      MODEL_SN:
+                      BUYER_SN:
+                      RGCK:
+                      AP_VERSION:
+                      CSC_VERSION:
+                      ICCID:
+                case 2:
+                  summary: "response test result"
+                  description: "This sample show how MES response to post test result to station"
+                  value:
+                    state: "true"
+                    content:  "true"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    Call:
+      type: object
+      properties:
+        user:
+          type: string
+          description: System user
+        password:
+          description: Password user
+          type: string
+        method:
+          description: MES Function name to call
+          type: string
+        methodparameter:
+          description: method information to use in function call
+          format: Application/json
+          type: string
