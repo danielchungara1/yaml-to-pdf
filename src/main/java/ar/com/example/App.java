@@ -57,6 +57,7 @@ public class App {
             temp.process(hashMap, outputStreamWriter);
             outputStreamWriter.close();
 
+            System.out.println("Archivo .md generado exitosamente con el nombre: output.md en el mismo directory que el archivo .yaml ingresado");
             // Guardar el archivo PDF en el mismo directorio del archivo YAML-TO-PDF
             // Mostrar mensaje de exito.
 
