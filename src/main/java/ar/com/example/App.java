@@ -52,8 +52,10 @@ public class App {
             Template temp = cfg.getTemplate(templateFile.getName());
 
             /* Merge data-model with template */
-            Writer out = new OutputStreamWriter(System.out);
-            temp.process(hashMap, out);
+            OutputStream outputStream = new FileOutputStream(dataDir.getPath() + "\\output.md");
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
+            temp.process(hashMap, outputStreamWriter);
+            outputStreamWriter.close();
 
             // Guardar el archivo PDF en el mismo directorio del archivo YAML-TO-PDF
             // Mostrar mensaje de exito.
@@ -64,6 +66,7 @@ public class App {
             System.out.println("Las extensiones validas son " + App.DATA_EXTENSION + "y " + App.TEMPLATE_EXTENSION );
         }catch (IOException e){
             System.out.println("Error de lectura del archivo, verifique la ruta del mismo");
+            e.printStackTrace();
         }
     }
 
