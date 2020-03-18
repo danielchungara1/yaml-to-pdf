@@ -3,5 +3,12 @@ This document describe Rest MES API and show examples of two uses case. Request 
 
 **Servers**
    * https://rg.qa.sim.ad.mirgor.com.ar:8081/QA-int/
-## Tags
-   * **device-api** Device API
+
+   **device-api** *Device API*
+
+_________________
+#### POST /device __--
+> **Parameters**
+>
+> No parameters
+_________________
