@@ -18,7 +18,7 @@ _________________
 > **Request Body**  *${paths["/device"].post.requestBody.required?string('required', 'no required')}*
 >
 > application/json
-
+>
 > **Examples:**  *${paths["/device"].post.requestBody.content["application/json"].examples["case 1"].summary}*
 > * **Example Value | Schema**
 >
@@ -35,13 +35,9 @@ _________________
 >
 >  ${paths["/device"].post.requestBody.content["application/json"].examples["case 1"].description}
 
-> **Responses**
+> **Response**
 >
-> * **Code** *200*
->
-> * **Description** *${paths["/device"].post.responses["200"].description}*
->
-> * **Links** *No Links*
+> * **Code** *200* || **Description** *${paths["/device"].post.responses["200"].description}* || **Links** *No Links**
 >
 > * **Media Type** *application/json*
 >
@@ -124,4 +120,15 @@ _________________
 >  ---- **CSC_VERSION:** *${paths["/device"].post.responses["200"].content["application/json"].examples["case 1"].value.content.CSC_VERSION!'null'}*
 >
 >  ---- **ICCID:** *${paths["/device"].post.responses["200"].content["application/json"].examples["case 1"].value.content.ICCID!'null'}*
+> * **Example Description**
+>
+>  ${paths["/device"].post.responses["200"].content["application/json"].examples["case 1"].description}
+>
+>
+> **Other Responses**
+> * **Code** *401* || **Description** *${paths["/device"].post.responses["401"].description}* || **Links** *No Links**
+>
+> * **Code** *403* || **Description** *${paths["/device"].post.responses["403"].description}* || **Links** *No Links**
+>
+> * **Code** *404* || **Description** *${paths["/device"].post.responses["404"].description}* || **Links** *No Links**
 _________________

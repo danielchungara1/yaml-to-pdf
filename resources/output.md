@@ -15,7 +15,7 @@ _________________
 > **Request Body**  *required*
 >
 > application/json
-
+>
 > **Examples:**  *request edf file information*
 > * **Example Value | Schema**
 >
@@ -32,13 +32,9 @@ _________________
 >
 >  This sample show how station call api to request edf file information from MES
 
-> **Responses**
+> **Response**
 >
-> * **Code** *200*
->
-> * **Description** *OK*
->
-> * **Links** *No Links*
+> * **Code** *200* || **Description** *OK* || **Links** *No Links**
 >
 > * **Media Type** *application/json*
 >
@@ -121,4 +117,15 @@ _________________
 >  ---- **CSC_VERSION:** *null*
 >
 >  ---- **ICCID:** *null*
+> * **Example Description**
+>
+>  This sample show how MES response to request edf file information
+>
+>
+> **Other Responses**
+> * **Code** *401* || **Description** *Unauthorized* || **Links** *No Links**
+>
+> * **Code** *403* || **Description** *Forbidden* || **Links** *No Links**
+>
+> * **Code** *404* || **Description** *Not Found* || **Links** *No Links**
 _________________
