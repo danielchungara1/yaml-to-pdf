@@ -42,5 +42,10 @@
     <orderEntry type="library" name="Maven: com.univocity:univocity-parsers:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20190722" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.10.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.flexjson:flexjson:3.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.fmpp:fmpp:0.9.16" level="project" />
+    <orderEntry type="library" name="Maven: org.beanshell:bsh:2.0b4" level="project" />
+    <orderEntry type="library" name="Maven: xml-resolver:xml-resolver:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.devlib.schmidt:imageinfo:1.9" level="project" />
   </component>
 </module>
